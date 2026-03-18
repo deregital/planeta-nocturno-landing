@@ -1,0 +1,71 @@
+---
+import FeatureRow from './FeatureRow.astro';
+import eventoCliente from '../assets/screenshots/evento-como-cliente.png';
+import todosEventos from '../assets/screenshots/todos-eventos-admin.png';
+import baseDeDatos from '../assets/screenshots/base-de-datos.jpg';
+import entrada from '../assets/screenshots/entrada.jpg';
+---
+
+<section id="funcionalidades" class="py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-6" data-reveal>
+    <span
+      class="text-sm font-medium uppercase tracking-widest text-amber-500"
+    >
+      Funcionalidades
+    </span>
+    <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+      Todo lo que necesitás para manejar tu noche
+    </h2>
+  </div>
+
+  <FeatureRow
+    title="Vendé entradas desde tu propia página"
+    description="Cada evento tiene su link único. Tus clientes eligen el tipo de entrada, pagan con cualquier medio de pago y reciben su ticket con QR al instante."
+    bullets={[
+      'Múltiples tipos de entrada por evento',
+      'Cobro directo a tu cuenta de Mercado Pago',
+      'Entradas gratis, pagas o mesas VIP',
+    ]}
+    image={eventoCliente}
+    imageAlt="Página de compra de entradas para un evento"
+  />
+
+  <FeatureRow
+    title="Todos tus eventos en un solo lugar"
+    description="Organizá tus noches por carpeta, creá eventos en minutos y tené siempre a mano la agenda completa. Pasados, próximos, todo ordenado."
+    bullets={[
+      'Carpetas por boliche o tipo de evento',
+      'Creación rápida con fecha, lugar y tipos de entrada',
+      'Historial completo de eventos pasados',
+    ]}
+    image={todosEventos}
+    imageAlt="Panel de gestión de eventos con carpetas"
+    reversed
+  />
+
+  <FeatureRow
+    title="Conocé a cada persona que pisa tu boliche"
+    description="Nombre, DNI, teléfono, Instagram, género, edad. Cada entrada vendida alimenta tu base de datos. Exportala a Excel cuando quieras."
+    bullets={[
+      'Filtros por nombre, DNI, teléfono o Instagram',
+      'Exportación a Excel con un click',
+      'Datos reales de cada asistente',
+    ]}
+    image={baseDeDatos}
+    imageAlt="Base de datos de asistentes con filtros y exportación"
+  />
+
+  <FeatureRow
+    title="Escaneá desde cualquier celular"
+    description="Cada entrada tiene un QR único. Tu equipo de puerta lo escanea con la cámara del teléfono, sin app extra, sin hardware especial."
+    bullets={[
+      'QR único por entrada, imposible de duplicar',
+      'Funciona con cualquier celular',
+      'Validación en tiempo real',
+    ]}
+    image={entrada}
+    imageAlt="Entrada digital con código QR para escaneo en puerta"
+    reversed
+    phoneFrame
+  />
+</section>

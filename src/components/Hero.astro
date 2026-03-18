@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+import adminView from '../assets/screenshots/todos-eventos-admin.png';
+import ticketView from '../assets/screenshots/entrada.jpg';
+---
+
+<section class="relative min-h-[100dvh] px-6 pt-24 lg:pt-0">
+  <!-- Ambient glow -->
+  <div
+    class="pointer-events-none absolute left-1/2 top-1/4 -z-10 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-amber-500/5 blur-[120px]"
+  >
+  </div>
+
+  <div
+    class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:min-h-[100dvh] lg:grid-cols-[1.4fr_1fr] lg:gap-16"
+  >
+    <!-- Left: Copy -->
+    <div class="flex flex-col items-start gap-6 py-12 lg:py-0">
+      <span
+        class="inline-flex items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-500"
+        data-reveal
+      >
+        Plataforma de ticketing para boliches
+      </span>
+
+      <h1
+        class="text-4xl font-bold leading-none tracking-tighter md:text-6xl"
+        data-reveal
+        data-reveal-delay="100"
+      >
+        Tu boliche.<br />
+        Tu marca.<br />
+        <span class="text-amber-500">Tu sistema de entradas.</span>
+      </h1>
+
+      <p
+        class="max-w-[50ch] text-lg leading-relaxed text-zinc-400"
+        data-reveal
+        data-reveal-delay="200"
+      >
+        Gestioná eventos, vendé entradas con cualquier medio de pago, controlá el ingreso con QR
+        y conocé a tu público. Todo desde una plataforma con tu propia marca.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4" data-reveal data-reveal-delay="300">
+        <a
+          href="#contacto"
+          data-magnetic="0.3"
+          class="inline-flex items-center rounded-full bg-amber-500 px-7 py-3 text-base font-semibold text-zinc-950 transition-colors duration-200 hover:bg-amber-400 active:scale-[0.98]"
+        >
+          Quiero una demo
+        </a>
+        <a
+          href="#funcionalidades"
+          class="inline-flex items-center rounded-full border border-zinc-700 px-7 py-3 text-base font-medium text-zinc-300 transition-colors duration-200 hover:border-zinc-500 hover:text-zinc-100"
+        >
+          Ver funcionalidades
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Screenshots composite -->
+    <div class="relative hidden lg:block" data-reveal data-reveal-delay="200">
+      <!-- Main screenshot -->
+      <div
+        class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-1.5 shadow-[0_20px_60px_-15px_rgba(245,158,11,0.15)]"
+        style="transform: rotate(2deg);"
+      >
+        <!-- Browser chrome -->
+        <div class="flex items-center gap-1.5 rounded-t-xl bg-zinc-800 px-3 py-2">
+          <div class="h-2.5 w-2.5 rounded-full bg-zinc-600"></div>
+          <div class="h-2.5 w-2.5 rounded-full bg-zinc-600"></div>
+          <div class="h-2.5 w-2.5 rounded-full bg-zinc-600"></div>
+        </div>
+        <Image
+          src={adminView}
+          alt="Panel de gestión de eventos de Planeta Nocturno"
+          class="w-full rounded-b-xl"
+          widths={[400, 800]}
+          sizes="(max-width: 1024px) 100vw, 40vw"
+        />
+      </div>
+
+      <!-- Floating ticket screenshot -->
+      <div
+        class="absolute -bottom-8 -left-12 w-44 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-1 shadow-[0_12px_40px_-10px_rgba(245,158,11,0.2)]"
+        style="animation: float 6s ease-in-out infinite;"
+      >
+        <Image
+          src={ticketView}
+          alt="Entrada digital con código QR"
+          class="w-full rounded-xl"
+          widths={[200, 400]}
+          sizes="176px"
+        />
+      </div>
+    </div>
+
+    <!-- Mobile: single screenshot -->
+    <div class="relative lg:hidden" data-reveal>
+      <div
+        class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-1.5 shadow-[0_20px_60px_-15px_rgba(245,158,11,0.15)]"
+      >
+        <div class="flex items-center gap-1.5 rounded-t-xl bg-zinc-800 px-3 py-2">
+          <div class="h-2.5 w-2.5 rounded-full bg-zinc-600"></div>
+          <div class="h-2.5 w-2.5 rounded-full bg-zinc-600"></div>
+          <div class="h-2.5 w-2.5 rounded-full bg-zinc-600"></div>
+        </div>
+        <Image
+          src={adminView}
+          alt="Panel de gestión de eventos"
+          class="w-full rounded-b-xl"
+          widths={[400, 800]}
+          sizes="100vw"
+        />
+      </div>
+    </div>
+  </div>
+</section>

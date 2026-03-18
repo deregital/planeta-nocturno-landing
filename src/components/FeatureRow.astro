@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  description: string;
+  bullets: string[];
+  image: ImageMetadata;
+  imageAlt: string;
+  reversed?: boolean;
+  phoneFrame?: boolean;
+}
+
+const { title, description, bullets, image, imageAlt, reversed = false, phoneFrame = false } = Astro.props;
+---
+
+<div class="py-16 lg:py-24">
+  <div
+    class:list={[
+      'mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16',
+      reversed && 'direction-rtl',
+    ]}
+  >
+    <!-- Text -->
+    <div class:list={['flex flex-col gap-5', reversed && 'direction-ltr']} data-reveal>
+      <h3 class="text-2xl font-bold tracking-tight md:text-3xl">
+        {title}
+      </h3>
+      <p class="max-w-[55ch] leading-relaxed text-zinc-400">
+        {description}
+      </p>
+      <ul class="flex flex-col gap-3 pt-2">
+        {
+          bullets.map((bullet) => (
+            <li class="flex items-start gap-3 text-zinc-300">
+              <span class="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber-500" />
+              <span class="text-sm leading-relaxed">{bullet}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Image -->
+    <div class:list={[reversed && 'direction-ltr']} data-reveal data-reveal-delay="150">
+      {
+        phoneFrame ? (
+          <div class="mx-auto max-w-[280px] overflow-hidden rounded-[2rem] border-[3px] border-zinc-700 bg-zinc-900 p-1.5 shadow-[0_20px_60px_-15px_rgba(245,158,11,0.15)]">
+            {/* Notch */}
+            <div class="mx-auto mb-1 h-5 w-24 rounded-full bg-zinc-800" />
+            <Image
+              src={image}
+              alt={imageAlt}
+              class="w-full rounded-[1.25rem]"
+              widths={[300, 500]}
+              sizes="280px"
+            />
+          </div>
+        ) : (
+          <div class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-1.5 shadow-[0_20px_60px_-15px_rgba(245,158,11,0.12)]">
+            {/* Browser chrome */}
+            <div class="flex items-center gap-1.5 rounded-t-xl bg-zinc-800 px-3 py-2">
+              <div class="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <div class="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <div class="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+            </div>
+            <Image
+              src={image}
+              alt={imageAlt}
+              class="w-full rounded-b-xl"
+              widths={[400, 800]}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .direction-rtl {
+    direction: rtl;
+  }
+  .direction-ltr {
+    direction: ltr;
+  }
+</style>

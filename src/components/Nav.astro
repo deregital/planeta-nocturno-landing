@@ -1,0 +1,107 @@
+---
+const links = [
+  { href: '#funcionalidades', label: 'Funcionalidades' },
+  { href: '#organizadores', label: 'Organizadores' },
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-40 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <!-- Logo -->
+    <a href="#" class="text-xl font-bold tracking-tight">
+      <span class="text-zinc-100">Planeta</span><span class="text-amber-500">Nocturno</span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden items-center gap-8 md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm text-zinc-400 transition-colors duration-200 hover:text-zinc-100"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="#contacto"
+        data-magnetic="0.25"
+        class="inline-flex items-center rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-zinc-950 transition-colors duration-200 hover:bg-amber-400 active:scale-[0.98]"
+      >
+        Empezá gratis
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="flex flex-col gap-1.5 md:hidden"
+      aria-label="Abrir menú"
+    >
+      <span class="block h-0.5 w-6 bg-zinc-300 transition-transform" id="burger-top"></span>
+      <span class="block h-0.5 w-6 bg-zinc-300 transition-opacity" id="burger-mid"></span>
+      <span class="block h-0.5 w-6 bg-zinc-300 transition-transform" id="burger-bot"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-zinc-800/50 bg-zinc-950/95 backdrop-blur-xl md:hidden"
+  >
+    <div class="flex flex-col gap-4 px-6 py-6">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-link text-base text-zinc-300 transition-colors hover:text-zinc-100"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="#contacto"
+        class="mt-2 inline-flex items-center justify-center rounded-full bg-amber-500 px-5 py-2.5 text-sm font-semibold text-zinc-950"
+      >
+        Empezá gratis
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const top = document.getElementById('burger-top');
+  const mid = document.getElementById('burger-mid');
+  const bot = document.getElementById('burger-bot');
+  let open = false;
+
+  btn?.addEventListener('click', () => {
+    open = !open;
+    menu?.classList.toggle('hidden', !open);
+    if (top && mid && bot) {
+      top.style.transform = open ? 'rotate(45deg) translate(4px, 4px)' : '';
+      mid.style.opacity = open ? '0' : '1';
+      bot.style.transform = open ? 'rotate(-45deg) translate(4px, -4px)' : '';
+    }
+  });
+
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      open = false;
+      menu?.classList.add('hidden');
+      if (top && mid && bot) {
+        top.style.transform = '';
+        mid.style.opacity = '1';
+        bot.style.transform = '';
+      }
+    });
+  });
+</script>

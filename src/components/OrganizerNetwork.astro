@@ -1,0 +1,134 @@
+---
+const roleCards = [
+  {
+    role: 'Administrador',
+    tagline: 'Visión completa del negocio',
+    features: [
+      'Dashboard con métricas de todos los eventos',
+      'Control total de usuarios, roles y permisos',
+      'Acceso a la base de datos completa de asistentes',
+      'Configuración de tipos de entrada y precios',
+      'Reportes de recaudación y asistencia',
+    ],
+  },
+  {
+    role: 'Jefe de Organizadores',
+    tagline: 'Coordiná tu equipo de RRPP',
+    features: [
+      'Panel con el rendimiento de cada organizador',
+      'Ranking en tiempo real de ventas por RRPP',
+      'Asignación de comisiones por organizador',
+      'Vista consolidada de invitados de todo el equipo',
+      'Historial de eventos y resultados del equipo',
+    ],
+  },
+  {
+    role: 'Organizador / RRPP',
+    tagline: 'Tu lista, tus números, tu link',
+    features: [
+      'Link propio para compartir en redes y grupos',
+      'Lista de invitados en tiempo real',
+      'Contactar invitados con un click (WhatsApp, teléfono)',
+      'Ver estado de cada entrada (pagada, pendiente, usada)',
+      'Seguimiento de comisiones acumuladas',
+    ],
+  },
+];
+
+const highlights = [
+  {
+    title: 'Cada RRPP tiene su link único',
+    description: 'Cuando alguien compra por ese link, sabés exactamente quién la trajo. Sin discusiones, sin planillas.',
+  },
+  {
+    title: 'Invitados en tiempo real',
+    description: 'El organizador ve su lista actualizándose al instante. Puede contactar a cualquier invitado con un toque.',
+  },
+  {
+    title: 'Comisiones automáticas',
+    description: 'Definí el porcentaje por organizador y el sistema lo calcula solo. Transparente para todos.',
+  },
+  {
+    title: 'Jerarquía que funciona',
+    description: 'Admin, Jefe de RRPP, Organizador, Ticketera. Cada rol ve exactamente lo que necesita, nada más.',
+  },
+];
+---
+
+<section id="organizadores" class="py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Header -->
+    <div class="mx-auto max-w-3xl" data-reveal>
+      <span class="text-sm font-medium uppercase tracking-widest text-amber-500">
+        Hecho con organizadores de primer nivel
+      </span>
+      <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
+        Diseñado con la noche porteña,<br />
+        <span class="text-zinc-400">para la noche porteña.</span>
+      </h2>
+      <p class="mt-5 max-w-[60ch] text-lg leading-relaxed text-zinc-400">
+        Trabajamos codo a codo con RRPP y jefes de organizadores que mueven los boliches más
+        importantes de Buenos Aires. Cada función de la plataforma nació de una necesidad real
+        de la noche, no de un escritorio.
+      </p>
+    </div>
+
+    <!-- Role cards -->
+    <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        roleCards.map((card, i) => (
+          <div
+            class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8"
+            data-reveal
+            data-reveal-delay={String(i * 100)}
+          >
+            <div class="mb-1 text-xs font-semibold uppercase tracking-widest text-amber-500">
+              {card.role}
+            </div>
+            <h3 class="text-xl font-bold text-zinc-100">{card.tagline}</h3>
+            <ul class="mt-5 flex flex-col gap-3">
+              {card.features.map((feat) => (
+                <li class="flex items-start gap-3 text-zinc-300">
+                  <span class="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber-500" />
+                  <span class="text-sm leading-relaxed">{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Highlights grid -->
+    <div class="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
+      <!-- Left: big statement -->
+      <div data-reveal>
+        <h3 class="text-2xl font-bold tracking-tight md:text-3xl">
+          Entendemos cómo funciona<br />
+          <span class="text-amber-500">el negocio de los RRPP.</span>
+        </h3>
+        <p class="mt-4 max-w-[50ch] leading-relaxed text-zinc-400">
+          No es solo vender entradas. Es armar equipo, medir resultados, repartir
+          comisiones y que cada organizador tenga las herramientas para laburar bien.
+          Construimos cada pantalla pensando en cómo trabaja un RRPP de verdad.
+        </p>
+      </div>
+
+      <!-- Right: highlight items -->
+      <div class="flex flex-col gap-6">
+        {
+          highlights.map((item, i) => (
+            <div
+              class="border-l-2 border-amber-500 py-2 pl-5"
+              data-reveal
+              data-reveal-delay={String(i * 100)}
+            >
+              <h4 class="text-base font-semibold text-zinc-100">{item.title}</h4>
+              <p class="mt-1 text-sm leading-relaxed text-zinc-400">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

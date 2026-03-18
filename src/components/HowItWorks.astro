@@ -1,0 +1,63 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Nos reunimos',
+    description: 'Organizamos una reunión con vos para entender tu negocio y configuramos el sistema para tu establecimiento.',
+  },
+  {
+    number: '02',
+    title: 'Armá tu evento',
+    description: 'Definí fecha, lugar, tipos de entrada y precios en minutos.',
+  },
+  {
+    number: '03',
+    title: 'Compartí el link',
+    description: 'Tus RRPP y redes sociales hacen el resto. Las ventas entran directo a tu cuenta.',
+  },
+  {
+    number: '04',
+    title: 'Controlá el ingreso',
+    description: 'Noche del evento: escaneá QR desde el celular y listo.',
+  },
+];
+---
+
+<section id="como-funciona" class="py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="text-center" data-reveal>
+      <span class="text-sm font-medium uppercase tracking-widest text-amber-500">
+        Cómo funciona
+      </span>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+        De la idea al ingreso en 4 pasos
+      </h2>
+    </div>
+
+    <div class="relative mt-16 grid grid-cols-1 gap-8 md:grid-cols-4 md:gap-6">
+      <!-- Connecting line (desktop only) -->
+      <div
+        class="pointer-events-none absolute left-[12.5%] right-[12.5%] top-10 hidden h-px border-t border-dashed border-zinc-700 md:block"
+      >
+      </div>
+
+      {
+        steps.map((step, i) => (
+          <div
+            class="relative flex flex-col items-center text-center"
+            data-reveal
+            data-reveal-delay={String(i * 150)}
+          >
+            <span class="text-6xl font-extrabold leading-none text-amber-500/15">
+              {step.number}
+            </span>
+            <h4 class="mt-3 text-lg font-semibold text-zinc-100">{step.title}</h4>
+            <p class="mt-2 max-w-[28ch] text-sm leading-relaxed text-zinc-400">
+              {step.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
