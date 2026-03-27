@@ -2,42 +2,41 @@
 const roleCards = [
   {
     role: 'Administrador',
-    tagline: 'Visión completa del negocio',
+    tagline: 'Visión completa del sistema',
     features: [
-      'Dashboard con métricas de todos los eventos',
       'Control total de usuarios, roles y permisos',
       'Acceso a la base de datos completa de asistentes',
       'Configuración de tipos de entrada y precios',
-      'Reportes de recaudación y asistencia',
+      'Seguimiento de ventas y escaneos en tiempo real',
+      'Gestión centralizada de todos los eventos activos',
     ],
   },
   {
     role: 'Jefe de Organizadores',
-    tagline: 'Coordiná tu equipo de RRPP',
+    tagline: 'Coordiná tu equipo',
     features: [
       'Panel con el rendimiento de cada organizador',
-      'Ranking en tiempo real de ventas por RRPP',
-      'Asignación de comisiones por organizador',
       'Vista consolidada de invitados de todo el equipo',
       'Historial de eventos y resultados del equipo',
+      'Acceso directo a reportes en Google Drive',
+      'Acceso directo a Mercado Pago',
     ],
   },
   {
-    role: 'Organizador / RRPP',
+    role: 'Organizador',
     tagline: 'Tu lista, tus números, tu link',
     features: [
       'Link propio para compartir en redes y grupos',
       'Lista de invitados en tiempo real',
       'Contactar invitados con un click (WhatsApp, teléfono)',
-      'Ver estado de cada entrada (pagada, pendiente, usada)',
-      'Seguimiento de comisiones acumuladas',
+      'Ver estado de cada entrada',
     ],
   },
 ];
 
 const highlights = [
   {
-    title: 'Cada RRPP tiene su link único',
+    title: 'Cada organizador tiene su link único',
     description: 'Cuando alguien compra por ese link, sabés exactamente quién la trajo. Sin discusiones, sin planillas.',
   },
   {
@@ -45,12 +44,8 @@ const highlights = [
     description: 'El organizador ve su lista actualizándose al instante. Puede contactar a cualquier invitado con un toque.',
   },
   {
-    title: 'Comisiones automáticas',
-    description: 'Definí el porcentaje por organizador y el sistema lo calcula solo. Transparente para todos.',
-  },
-  {
     title: 'Jerarquía que funciona',
-    description: 'Admin, Jefe de RRPP, Organizador, Ticketera. Cada rol ve exactamente lo que necesita, nada más.',
+    description: 'Administrador, Jefe de Organizadores, Organizador, Acceso. Cada rol ve exactamente lo que necesita, nada más.',
   },
 ];
 ---
@@ -60,17 +55,12 @@ const highlights = [
     <!-- Header -->
     <div class="mx-auto max-w-3xl" data-reveal>
       <span class="text-sm font-medium uppercase tracking-widest text-amber-500">
-        Hecho con organizadores de primer nivel
+        Administrador, jefes de organizadores y organizadores
       </span>
       <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
-        Diseñado con la noche porteña,<br />
-        <span class="text-zinc-400">para la noche porteña.</span>
+        Pensado con quienes organizan,<br />
+        <span class="text-zinc-400">construido para que funcione.</span>
       </h2>
-      <p class="mt-5 max-w-[60ch] text-lg leading-relaxed text-zinc-400">
-        Trabajamos codo a codo con RRPP y jefes de organizadores que mueven los boliches más
-        importantes de Buenos Aires. Cada función de la plataforma nació de una necesidad real
-        de la noche, no de un escritorio.
-      </p>
     </div>
 
     <!-- Role cards -->
@@ -105,12 +95,12 @@ const highlights = [
       <div data-reveal>
         <h3 class="text-2xl font-bold tracking-tight md:text-3xl">
           Entendemos cómo funciona<br />
-          <span class="text-amber-500">el negocio de los RRPP.</span>
+          <span class="text-amber-500">el negocio de los organizadores.</span>
         </h3>
         <p class="mt-4 max-w-[50ch] leading-relaxed text-zinc-400">
-          No es solo vender entradas. Es armar equipo, medir resultados, repartir
-          comisiones y que cada organizador tenga las herramientas para laburar bien.
-          Construimos cada pantalla pensando en cómo trabaja un RRPP de verdad.
+          No es solo vender entradas. Es armar equipo, medir resultados y que cada
+          organizador tenga las herramientas para laburar bien.
+          Construimos cada pantalla pensando en cómo trabaja un organizador de verdad.
         </p>
       </div>
 
