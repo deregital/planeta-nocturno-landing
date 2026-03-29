@@ -1,53 +1,9 @@
 ---
-const roleCards = [
-  {
-    role: 'Administrador',
-    tagline: 'Visión completa del sistema',
-    features: [
-      'Control total de usuarios, roles y permisos',
-      'Acceso a la base de datos completa de asistentes',
-      'Configuración de tipos de entrada y precios',
-      'Seguimiento de ventas y escaneos en tiempo real',
-      'Gestión centralizada de todos los eventos activos',
-    ],
-  },
-  {
-    role: 'Jefe de Organizadores',
-    tagline: 'Coordiná tu equipo',
-    features: [
-      'Panel con el rendimiento de cada organizador',
-      'Vista consolidada de invitados de todo el equipo',
-      'Historial de eventos y resultados del equipo',
-      'Acceso directo a reportes en Google Drive',
-      'Acceso directo a Mercado Pago',
-    ],
-  },
-  {
-    role: 'Organizador',
-    tagline: 'Tu lista, tus números, tu link',
-    features: [
-      'Link propio para compartir en redes y grupos',
-      'Lista de invitados en tiempo real',
-      'Contactar invitados con un click (WhatsApp, teléfono)',
-      'Ver estado de cada entrada',
-    ],
-  },
-];
+import { reader } from '../lib/keystatic-reader';
 
-const highlights = [
-  {
-    title: 'Cada organizador tiene su link único',
-    description: 'Cuando alguien compra por ese link, sabés exactamente quién la trajo. Sin discusiones, sin planillas.',
-  },
-  {
-    title: 'Invitados en tiempo real',
-    description: 'El organizador ve su lista actualizándose al instante. Puede contactar a cualquier invitado con un toque.',
-  },
-  {
-    title: 'Jerarquía que funciona',
-    description: 'Administrador, Jefe de Organizadores, Organizador, Acceso. Cada rol ve exactamente lo que necesita, nada más.',
-  },
-];
+const org = await reader.singletons.organizerNetwork.read();
+const roleCards = org?.roleCards ?? [];
+const highlights = org?.highlights ?? [];
 ---
 
 <section id="organizadores" class="py-20 lg:py-28">
@@ -55,11 +11,11 @@ const highlights = [
     <!-- Header -->
     <div class="mx-auto max-w-3xl" data-reveal>
       <span class="text-sm font-medium uppercase tracking-widest text-amber-500">
-        Administrador, jefes de organizadores y organizadores
+        {org?.sectionLabel}
       </span>
       <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
-        Pensado con quienes organizan,<br />
-        <span class="text-zinc-400">construido para que funcione.</span>
+        {org?.headingLine1}<br />
+        <span class="text-zinc-400">{org?.headingLine2}</span>
       </h2>
     </div>
 
@@ -94,13 +50,10 @@ const highlights = [
       <!-- Left: big statement -->
       <div data-reveal>
         <h3 class="text-2xl font-bold tracking-tight md:text-3xl">
-          Entendemos cómo funciona<br />
-          <span class="text-amber-500">el negocio de los organizadores.</span>
+          {org?.leftTitle}
         </h3>
         <p class="mt-4 max-w-[50ch] leading-relaxed text-zinc-400">
-          No es solo vender entradas. Es armar equipo, medir resultados y que cada
-          organizador tenga las herramientas para laburar bien.
-          Construimos cada pantalla pensando en cómo trabaja un organizador de verdad.
+          {org?.leftDescription}
         </p>
       </div>
 

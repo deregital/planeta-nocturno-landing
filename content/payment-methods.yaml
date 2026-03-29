@@ -1,0 +1,17 @@
+sectionLabel: 'Medios de pago'
+heading: 'Cobrá con todo.'
+headingAccent: 'Literalmente.'
+description: "Gracias a la integración con Mercado Pago, tus clientes pagan como quieran. Y si alguien llega a la puerta sin entrada, también podés registrar el cobro en efectivo."
+methods:
+  - name: 'Tarjeta de crédito'
+    description: 'Visa, Mastercard, American Express y todas las tarjetas que acepta Mercado Pago.'
+  - name: 'Tarjeta de débito'
+    description: 'Pago directo desde la cuenta bancaria, sin vueltas.'
+  - name: 'Transferencia bancaria'
+    description: 'CBU, alias o transferencia inmediata desde cualquier banco.'
+  - name: 'Dinero en cuenta MP'
+    description: 'Saldo disponible en Mercado Pago, pago al instante.'
+  - name: 'Efectivo'
+    description: 'Pago en Rapipago, Pago Fácil u otros puntos de cobro. También se puede registrar efectivo en puerta.'
+  - name: 'Cuotas'
+    description: 'Hasta 12 cuotas con las tarjetas que lo permitan, gestionado por Mercado Pago.'

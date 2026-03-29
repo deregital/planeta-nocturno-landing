@@ -1,12 +1,16 @@
 ---
+import { reader } from '../lib/keystatic-reader';
+
+const siteSettings = await reader.singletons.siteSettings.read();
+
 interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = 'TuTicketera — Plataforma de ticketing para eventos',
-  description = 'Gestioná eventos, vendé entradas con Mercado Pago, controlá el ingreso con QR y conocé a tu público. Todo desde una plataforma con tu propia marca.',
+  title = siteSettings?.pageTitle ?? 'TuTicketera — Plataforma de ticketing para eventos',
+  description = siteSettings?.metaDescription ?? 'Gestioná eventos, vendé entradas con Mercado Pago, controlá el ingreso con QR y conocé a tu público. Todo desde una plataforma con tu propia marca.',
 } = Astro.props;
 ---
 
