@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import adminView from '../assets/screenshots/todos-eventos-admin.png';
 import ticketView from '../assets/screenshots/entrada.jpg';
+import { reader } from '../lib/keystatic-reader';
+
+const hero = await reader.singletons.hero.read();
 ---
 
 <section class="relative min-h-[100dvh] px-6 pt-24 lg:pt-0">
@@ -21,7 +24,7 @@ import ticketView from '../assets/screenshots/entrada.jpg';
         class="inline-flex items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-500"
         data-reveal
       >
-        Plataforma de ticketing para empresas
+        {hero?.badge}
       </span>
 
       <h1
@@ -29,9 +32,9 @@ import ticketView from '../assets/screenshots/entrada.jpg';
         data-reveal
         data-reveal-delay="100"
       >
-        Tu empresa.<br />
-        Tu marca.<br />
-        <span class="text-amber-500">Tu sistema de entradas.</span>
+        {hero?.headlineLine1}<br />
+        {hero?.headlineLine2}<br />
+        <span class="text-amber-500">{hero?.headlineAccent}</span>
       </h1>
 
       <p
@@ -39,16 +42,15 @@ import ticketView from '../assets/screenshots/entrada.jpg';
         data-reveal
         data-reveal-delay="200"
       >
-        Gestioná eventos, vendé entradas con cualquier medio de pago, controlá el ingreso con QR
-        y conocé a tu público. Todo desde una plataforma con tu propia marca.
+        {hero?.description}
       </p>
 
       <div class="flex flex-wrap items-center gap-4" data-reveal data-reveal-delay="300">
         <a
-          href="#funcionalidades"
+          href={hero?.ctaHref ?? '#funcionalidades'}
           class="inline-flex items-center rounded-full border border-zinc-700 px-7 py-3 text-base font-medium text-zinc-300 transition-colors duration-200 hover:border-zinc-500 hover:text-zinc-100"
         >
-          Ver funcionalidades
+          {hero?.ctaLabel}
         </a>
       </div>
     </div>

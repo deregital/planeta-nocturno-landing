@@ -4,66 +4,28 @@ import eventoCliente from '../assets/screenshots/evento-como-cliente.png';
 import todosEventos from '../assets/screenshots/todos-eventos-admin.png';
 import baseDeDatos from '../assets/screenshots/base-de-datos.jpg';
 import entrada from '../assets/screenshots/entrada.jpg';
+import { reader } from '../lib/keystatic-reader';
+
+const features = await reader.singletons.features.read();
+const images = [eventoCliente, todosEventos, baseDeDatos, entrada];
 ---
 
 <section id="funcionalidades" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-6" data-reveal>
-    <span
-      class="text-sm font-medium uppercase tracking-widest text-amber-500"
-    >
-      Funcionalidades
+    <span class="text-sm font-medium uppercase tracking-widest text-amber-500">
+      {features?.sectionLabel}
     </span>
   </div>
 
-  <FeatureRow
-    title="Vendé entradas desde tu propia página"
-    description="Cada evento tiene su link único. Tus clientes eligen el tipo de entrada, pagan con cualquier medio de pago y reciben su ticket con QR al instante."
-    bullets={[
-      'Múltiples tipos de entrada por evento',
-      'Cobro directo a tu cuenta de Mercado Pago',
-      'Entradas gratis, pagas o de invitación',
-    ]}
-    image={eventoCliente}
-    imageAlt="Página de compra de entradas para un evento"
-  />
-
-  <FeatureRow
-    title="Todos tus eventos en un solo lugar"
-    description="Organizá tus noches por carpeta, creá eventos en minutos y tené siempre a mano la agenda completa. Pasados, próximos, todo ordenado."
-    bullets={[
-      'Organizá tus eventos con carpetas, como quieras.',
-      'Creación rápida con fecha, lugar y tipos de entrada',
-      'Historial completo de eventos pasados',
-    ]}
-    image={todosEventos}
-    imageAlt="Panel de gestión de eventos con carpetas"
-    reversed
-  />
-
-  <FeatureRow
-    title="Conocé a cada persona que pisa tu evento"
-    description="Nombre, DNI, teléfono, Instagram, género, edad. Cada entrada vendida alimenta tu base de datos. Exportala a Excel cuando quieras."
-    bullets={[
-      'Filtros por nombre y apellido, mail, fecha de nacimiento',
-      'Exportación a Excel con un click',
-      'Datos reales de cada asistente',
-      'Contactá fácil y rápidamente a tus clientes por Whatsapp, Instagram o mail.',
-    ]}
-    image={baseDeDatos}
-    imageAlt="Base de datos de asistentes con filtros y exportación"
-  />
-
-  <FeatureRow
-    title="Escaneá desde cualquier celular"
-    description="Cada entrada tiene un QR único. Tu equipo de puerta lo escanea con la cámara del teléfono, sin app extra, sin hardware especial."
-    bullets={[
-      'QR único por entrada, imposible de duplicar',
-      'Funciona con cualquier celular',
-      'Validación en tiempo real',
-    ]}
-    image={entrada}
-    imageAlt="Entrada digital con código QR para escaneo en puerta"
-    reversed
-    phoneFrame
-  />
+  {features?.items.map((item, i) => (
+    <FeatureRow
+      title={item.title}
+      description={item.description}
+      bullets={item.bullets}
+      image={images[i]}
+      imageAlt={item.imageAlt}
+      reversed={item.reversed}
+      phoneFrame={item.phoneFrame}
+    />
+  ))}
 </section>

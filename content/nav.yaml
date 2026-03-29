@@ -1,0 +1,9 @@
+logoPartA: 'Tu'
+logoPartB: 'Ticketera'
+links:
+  - href: '#funcionalidades'
+    label: 'Funcionalidades'
+  - href: '#organizadores'
+    label: 'Organizadores'
+  - href: '#como-funciona'
+    label: 'Cómo funciona'

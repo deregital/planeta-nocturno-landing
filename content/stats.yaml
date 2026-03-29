@@ -1,0 +1,13 @@
+items:
+  - value: 3200
+    suffix: '+'
+    label: 'Entradas vendidas'
+  - value: 47
+    suffix: ''
+    label: 'Eventos gestionados'
+  - value: 12
+    suffix: ''
+    label: 'Boliches activos'
+  - value: 98.7
+    suffix: '%'
+    label: 'Escaneos exitosos'

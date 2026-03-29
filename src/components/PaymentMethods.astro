@@ -1,12 +1,8 @@
 ---
-const methods = [
-  { name: 'Tarjeta de crédito', description: 'Visa, Mastercard, American Express y todas las tarjetas que acepta Mercado Pago.' },
-  { name: 'Tarjeta de débito', description: 'Pago directo desde la cuenta bancaria, sin vueltas.' },
-  { name: 'Transferencia bancaria', description: 'CBU, alias o transferencia inmediata desde cualquier banco.' },
-  { name: 'Dinero en cuenta MP', description: 'Saldo disponible en Mercado Pago, pago al instante.' },
-  { name: 'Efectivo', description: 'Pago en Rapipago, Pago Fácil u otros puntos de cobro. También se puede registrar efectivo en puerta.' },
-  { name: 'Cuotas', description: 'Hasta 12 cuotas con las tarjetas que lo permitan, gestionado por Mercado Pago.' },
-];
+import { reader } from '../lib/keystatic-reader';
+
+const pm = await reader.singletons.paymentMethods.read();
+const methods = pm?.methods ?? [];
 ---
 
 <section class="border-y border-zinc-800/30 py-20 lg:py-28">
@@ -15,15 +11,14 @@ const methods = [
       <!-- Left: copy -->
       <div data-reveal>
         <span class="text-sm font-medium uppercase tracking-widest text-amber-500">
-          Medios de pago
+          {pm?.sectionLabel}
         </span>
         <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-          Cobrá con todo.<br />
-          <span class="text-zinc-400">Literalmente.</span>
+          {pm?.heading}<br />
+          <span class="text-zinc-400">{pm?.headingAccent}</span>
         </h2>
         <p class="mt-5 max-w-[45ch] leading-relaxed text-zinc-400">
-          Gracias a la integración con Mercado Pago, tus clientes pagan como quieran.
-          Y si alguien llega a la puerta sin entrada, también podés registrar el cobro en efectivo.
+          {pm?.description}
         </p>
         <div class="mt-6 flex items-center gap-3">
           <div class="flex h-10 items-center rounded-lg border border-zinc-800 bg-zinc-900 px-4">

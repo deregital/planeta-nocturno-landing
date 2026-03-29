@@ -1,10 +1,8 @@
 ---
-const stats = [
-  { value: 3200, suffix: '+', label: 'Entradas vendidas' },
-  { value: 47, suffix: '', label: 'Eventos gestionados' },
-  { value: 12, suffix: '', label: 'Boliches activos' },
-  { value: 98.7, suffix: '%', label: 'Escaneos exitosos' },
-];
+import { reader } from '../lib/keystatic-reader';
+
+const statsData = await reader.singletons.stats.read();
+const stats = statsData?.items ?? [];
 ---
 
 <section class="border-y border-zinc-800/50 py-16" data-reveal>
@@ -19,7 +17,7 @@ const stats = [
         >
           <span
             class="text-3xl font-bold text-amber-500 md:text-4xl"
-            data-counter-target={stat.value}
+            data-counter-target={String(stat.value)}
             data-counter-suffix={stat.suffix}
           >
             0{stat.suffix}
