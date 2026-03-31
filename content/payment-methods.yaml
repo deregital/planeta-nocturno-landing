@@ -1,6 +1,6 @@
 sectionLabel: 'Medios de pago'
-heading: 'Cobrá con todo.'
-headingAccent: 'Literalmente.'
+heading: 'Cobrá con todos los medios de pago.'
+headingAccent: ''
 description: "Gracias a la integración con Mercado Pago, tus clientes pagan como quieran. Y si alguien llega a la puerta sin entrada, también podés registrar el cobro en efectivo."
 methods:
   - name: 'Tarjeta de crédito'

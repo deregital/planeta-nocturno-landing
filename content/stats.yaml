@@ -1,13 +1,13 @@
 items:
   - value: 3200
     suffix: '+'
-    label: 'Entradas vendidas'
+    label: 'Tickets vendidos'
   - value: 47
     suffix: ''
     label: 'Eventos gestionados'
   - value: 12
     suffix: ''
-    label: 'Boliches activos'
+    label: 'Locales activos'
   - value: 98.7
     suffix: '%'
     label: 'Escaneos exitosos'
