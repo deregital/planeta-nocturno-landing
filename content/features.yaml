@@ -17,7 +17,7 @@ items:
       - 'Historial completo de eventos pasados'
     imageAlt: 'Menú de la ticketera con todos los eventos desplegados'
     reversed: true
-    phoneFrame: false
+    phoneFrame: true
   - title: 'Conocé a cada persona que participa de tu evento'
     description: 'Nombre y apellido, fecha de nacimiento, mail. Cada ticket vendido alimenta tu base de datos. Exportala a Excel cuando quieras.'
     bullets:

@@ -1,13 +1,13 @@
 ---
 import FeatureRow from './FeatureRow.astro';
 import eventoCliente from '../assets/screenshots/evento-como-cliente.png';
-import todosEventos from '../assets/screenshots/todos-eventos-admin.png';
+import menuEventos from '../assets/screenshots/Screenshot_2026-03-31-20-07-17-838_com.android.chrome-edit.jpg';
 import baseDeDatos from '../assets/screenshots/base-de-datos.jpg';
 import entrada from '../assets/screenshots/entrada.jpg';
 import { reader } from '../lib/keystatic-reader';
 
 const features = await reader.singletons.features.read();
-const images = [eventoCliente, todosEventos, baseDeDatos, entrada];
+const images = [eventoCliente, menuEventos, baseDeDatos, entrada];
 ---
 
 <section id="funcionalidades" class="py-16 lg:py-24">
